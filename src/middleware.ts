@@ -9,8 +9,6 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/", request.url));
     }
   } else {
-    console.log(typeof isAuthenticated, "dasd");
-
     if (isAuthenticated === "false" || isAuthenticated === undefined) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
@@ -19,5 +17,5 @@ export function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/", "/login", "/home", "/dashboard"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
