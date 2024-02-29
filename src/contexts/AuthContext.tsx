@@ -26,7 +26,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
   useEffect(() => {
-    const storedIsAuthenticated = Cookies.get("isAuthenticated");
     if (state.isAuthenticated === false) {
       Cookies.set("isAuthenticated", "false");
     } else {
